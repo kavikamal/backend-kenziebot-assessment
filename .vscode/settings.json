@@ -1,0 +1,4 @@
+{
+    "python.pythonPath": "${workspaceFolder}/kenziebot/bin/python",
+    "python.linting.enabled": false
+}
