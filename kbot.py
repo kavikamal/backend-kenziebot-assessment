@@ -7,7 +7,10 @@ import os
 from dotenv import Dotenv
 dotenv = Dotenv(os.path.join(os.path.dirname(__file__), ".env")) # Of course, replace by your correct path
 os.environ.update(dotenv)
-slack_client = SlackClient(os.getenv('SLACK_BOT_TOKEN'))
+if os.getenv('SLACK_BOT_TOKEN'):
+    slack_client = SlackClient(os.getenv('SLACK_BOT_TOKEN'))
+else     
+    slack_client = SlackClient(os.environ.get('SLACK_BOT_TOKEN'))
 
 # kbot's user ID in Slack: value is assigned after the bot starts up
 kbot_id = None
