@@ -5,8 +5,8 @@ class TestSlackbot(unittest.TestCase):
     def test_handle_command(self):
         "Tests the handle command functions inputs"
         self.assertEqual(
-            kbot.handle_command('choc', "channel"),
-            ":chocolate_bar:")
+            kbot.handle_command('choc', "DCR9ET3FD"),
+            None)
     
 
 

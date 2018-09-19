@@ -3,13 +3,14 @@ import time
 import re
 import logging
 from slackclient import SlackClient
-import os
+
 from dotenv import Dotenv
-dotenv = Dotenv(os.path.join(os.path.dirname(__file__), ".env")) # Of course, replace by your correct path
+# Of course, replace by your correct path
+dotenv = Dotenv(os.path.join(os.path.dirname(__file__), ".env"))
 os.environ.update(dotenv)
 if os.getenv('SLACK_BOT_TOKEN'):
     slack_client = SlackClient(os.getenv('SLACK_BOT_TOKEN'))
-else     
+else:
     slack_client = SlackClient(os.environ.get('SLACK_BOT_TOKEN'))
 
 # kbot's user ID in Slack: value is assigned after the bot starts up
@@ -19,7 +20,7 @@ logging.basicConfig(filename='log.log', level=logging.DEBUG,
                     format='%(asctime)s:%(levelname)s:%(message)s')
 
 # constants
-RTM_READ_DELAY = 1 # 1 second delay between reading from RTM
+RTM_READ_DELAY = 1  # 1 second delay between reading from RTM
 PING_COMMAND = "ping"
 HELP_COMMAND = "help"
 CHOC_COMMAND = "choc"
@@ -38,20 +39,23 @@ def parse_bot_commands(slack_events):
         If its not found, then this function returns None, None.
     """
     for event in slack_events:
-        if event["type"] == "message" and not "subtype" in event:
+        if event["type"] == "message" and "subtype" not in event:
             user_id, message = parse_direct_mention(event["text"])
             if user_id == kbot_id:
                 return message, event["channel"]
     return None, None
 
+
 def parse_direct_mention(message_text):
     """
-        Finds a direct mention (a mention that is at the beginning) in message text
-        and returns the user ID which was mentioned. If there is no direct mention, returns None
+        Finds a direct mention (a mention that is at the beginning)
+        in message text and returns the user ID which was mentioned.
+        If there is no direct mention, returns None
     """
     matches = re.search(MENTION_REGEX, message_text)
     # the first group contains the username, the second group contains the remaining message
     return (matches.group(1), matches.group(2).strip()) if matches else (None, None)
+
 
 def handle_command(command, channel):
     """
@@ -59,24 +63,24 @@ def handle_command(command, channel):
     """
     # Default response is help text for the user
     default_response = "Not sure what you mean. Try *{}*.".format(HELP_COMMAND)
-
     # Finds and executes the given command, filling in response
     response = None
     # This is where you start to implement more commands!
     if command.startswith(HELP_COMMAND):
         response = "choc - displays chocolate emoji\nping - ping kitkat bot\nbots - displays all the slack bots\nexit - exits"
-    elif command.startswith(CHOC_COMMAND):  
+    elif command.startswith(CHOC_COMMAND):
         response = ":chocolate_bar:"
     elif command.startswith(BOTS_COMMAND):
-        response =''
+        response = ''
         request = slack_client.api_call("users.list")
         if request['ok']:
             for item in request['members']:
                 if item['is_bot']:
-                    response = response + item['name'] +"\n"
+                    response = response + item['name'] + "\n"
     elif command.startswith(EXIT_COMMAND):
-        # slack_client.api_call("channels.leave")  
-        response = "Bye Bye"  
+        # slack_client.api_call("channels.leave")
+
+        response = "Bye Bye"
         global exit_flag
         exit_flag = True
     elif command.startswith(PING_COMMAND):
@@ -100,4 +104,4 @@ if __name__ == "__main__":
                 handle_command(command, channel)
             time.sleep(RTM_READ_DELAY)
     else:
-        print("Connection failed. Exception traceback printed above.")    
+        print("Connection failed. Exception traceback printed above.")

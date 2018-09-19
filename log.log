@@ -184,3 +184,31 @@
 2018-09-13 00:05:30,858:DEBUG:https://slack.com:443 "POST /api/chat.postMessage HTTP/1.1" 200 60
 2018-09-13 00:08:52,796:DEBUG:Starting new HTTPS connection (1): slack.com:443
 2018-09-13 00:08:53,265:DEBUG:https://slack.com:443 "POST /api/chat.postMessage HTTP/1.1" 200 60
+2018-09-19 13:00:06,828:DEBUG:Starting new HTTPS connection (1): slack.com:443
+2018-09-19 13:00:07,102:DEBUG:https://slack.com:443 "POST /api/chat.postMessage HTTP/1.1" 200 60
+2018-09-19 13:01:03,902:DEBUG:Starting new HTTPS connection (1): slack.com:443
+2018-09-19 13:01:04,091:DEBUG:https://slack.com:443 "POST /api/chat.postMessage HTTP/1.1" 200 60
+2018-09-19 13:01:17,235:DEBUG:Starting new HTTPS connection (1): slack.com:443
+2018-09-19 13:01:17,448:DEBUG:https://slack.com:443 "POST /api/rtm.connect HTTP/1.1" 200 259
+2018-09-19 13:01:17,632:DEBUG:RTM connected
+2018-09-19 13:01:17,633:INFO:KitKat Bot connected and running!
+2018-09-19 13:01:17,636:DEBUG:Starting new HTTPS connection (1): slack.com:443
+2018-09-19 13:01:17,814:DEBUG:https://slack.com:443 "POST /api/auth.test HTTP/1.1" 200 128
+2018-09-19 13:01:41,902:DEBUG:Starting new HTTPS connection (1): slack.com:443
+2018-09-19 13:01:42,117:DEBUG:https://slack.com:443 "POST /api/chat.postMessage HTTP/1.1" 200 212
+2018-09-19 13:01:56,170:DEBUG:Starting new HTTPS connection (1): slack.com:443
+2018-09-19 13:01:56,376:DEBUG:https://slack.com:443 "POST /api/chat.postMessage HTTP/1.1" 200 161
+2018-09-19 13:02:40,757:DEBUG:Starting new HTTPS connection (1): slack.com:443
+2018-09-19 13:02:40,981:DEBUG:https://slack.com:443 "POST /api/rtm.connect HTTP/1.1" 200 259
+2018-09-19 13:02:41,171:DEBUG:RTM connected
+2018-09-19 13:02:41,172:INFO:KitKat Bot connected and running!
+2018-09-19 13:02:41,174:DEBUG:Starting new HTTPS connection (1): slack.com:443
+2018-09-19 13:02:41,348:DEBUG:https://slack.com:443 "POST /api/auth.test HTTP/1.1" 200 128
+2018-09-19 13:02:48,376:DEBUG:Starting new HTTPS connection (1): slack.com:443
+2018-09-19 13:02:48,590:DEBUG:https://slack.com:443 "POST /api/chat.postMessage HTTP/1.1" 200 213
+2018-09-19 13:03:18,601:DEBUG:Starting new HTTPS connection (1): slack.com:443
+2018-09-19 13:03:18,819:DEBUG:https://slack.com:443 "POST /api/chat.postMessage HTTP/1.1" 200 162
+2018-09-19 13:06:48,994:DEBUG:Starting new HTTPS connection (1): slack.com:443
+2018-09-19 13:06:49,215:DEBUG:https://slack.com:443 "POST /api/chat.postMessage HTTP/1.1" 200 161
+2018-09-19 13:07:14,352:DEBUG:Starting new HTTPS connection (1): slack.com:443
+2018-09-19 13:07:14,555:DEBUG:https://slack.com:443 "POST /api/chat.postMessage HTTP/1.1" 200 162
