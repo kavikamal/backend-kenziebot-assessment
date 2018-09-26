@@ -34,8 +34,9 @@ start_time = time.time()
 
 def parse_bot_commands(slack_events):
     """
-        Parses a list of events coming from the Slack RTM API to find bot commands.
-        If a bot command is found, this function returns a tuple of command and channel.
+        Parses a list of events coming from the Slack RTM API to
+        find bot commands.If a bot command is found, this function
+        returns a tuple of command and channel.
         If its not found, then this function returns None, None.
     """
     for event in slack_events:
@@ -53,8 +54,10 @@ def parse_direct_mention(message_text):
         If there is no direct mention, returns None
     """
     matches = re.search(MENTION_REGEX, message_text)
-    # the first group contains the username, the second group contains the remaining message
-    return (matches.group(1), matches.group(2).strip()) if matches else (None, None)
+    # the first group contains the username, the second group
+    # contains the remaining message
+    return (matches.group(1),
+            matches.group(2).strip()) if matches else (None, None)
 
 
 def handle_command(command, channel):
@@ -67,7 +70,10 @@ def handle_command(command, channel):
     response = None
     # This is where you start to implement more commands!
     if command.startswith(HELP_COMMAND):
-        response = "choc - displays chocolate emoji\nping - ping kitkat bot\nbots - displays all the slack bots\nexit - exits"
+        response = """choc - displays chocolate emoji
+                    \nping - ping kitkat bot
+                    \nbots - displays all the slack bots
+                    \nexit - exits"""
     elif command.startswith(CHOC_COMMAND):
         response = ":chocolate_bar:"
     elif command.startswith(BOTS_COMMAND):
